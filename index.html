@@ -111,6 +111,19 @@
             </div>
         </div>
     </footer>
+    <div id="signup-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" id="close-signup">&times;</span>
+            <h2>Sign Up</h2>
+            <form id="signup-form" method="POST" action="/api/signup">
+                <input type="text" name="username" placeholder="Username" required />
+                <input type="email" name="email" placeholder="Email" required />
+                <input type="password" name="password" placeholder="Password" required />
+                <button type="submit">Create Account</button>
+            </form>
+            <div id="signup-message"></div>
+        </div>
+    </div>
     <script>
 
 let adIndex = 0;
@@ -120,8 +133,39 @@ if (ads.length > 0) {
         ads[adIndex].classList.remove('active');
         adIndex = (adIndex + 1) % ads.length;
         ads[adIndex].classList.add('active');
-    }, 6000);
+    }, 4500);
 }
+// Sign Up modal logic
+document.querySelector('.signup').onclick = function(e) {
+    e.preventDefault();
+    document.getElementById('signup-modal').style.display = 'block';
+};
+document.getElementById('close-signup').onclick = function() {
+    document.getElementById('signup-modal').style.display = 'none';
+};
+window.onclick = function(event) {
+    if (event.target === document.getElementById('signup-modal')) {
+        document.getElementById('signup-modal').style.display = 'none';
+    }
+};
+// AJAX submit for signup
+document.getElementById('signup-form').onsubmit = async function(e) {
+    e.preventDefault();
+    const form = e.target;
+    const data = {
+        username: form.username.value,
+        email: form.email.value,
+        password: form.password.value
+    };
+    const res = await fetch('/api/signup', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify(data)
+    });
+    const msg = await res.text();
+    document.getElementById('signup-message').innerText = msg;
+    if (res.ok) form.reset();
+};
 </script>
 </body>
 </html>

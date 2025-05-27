@@ -33,7 +33,7 @@
     transition: color 0.2s;
 }
 .nav-menu li a:hover {
-    color: #1b5b7e;
+    color: #9cb4c1;
 }
 .nav-actions {
     display: flex;
@@ -64,7 +64,7 @@
 }
 .signup:hover,
 .login:hover {
-    color: #1b5b7e !important;
+    color: #7c9bac !important;
     background: none !important;
 }
 .login {
@@ -477,6 +477,7 @@ html, body {
     font-size: 1.08rem;
     color: #888;
     font-family: 'Noto Sans SC', sans-serif;
+    margin-left: 424px;
 }
 .ads-right {
     flex: 0 0 620px;
@@ -512,4 +513,92 @@ html, body {
 .ad-img.active {
     opacity: 1;
     z-index: 2;
+}
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    left: 0; top: 0; width: 100vw; height: 100vh;
+    background: rgba(0,0,0,0.35);
+    justify-content: center;
+    align-items: center;
+}
+.modal-content {
+    background: linear-gradient(135deg, #e5e9ef 60%, #f8fbff 100%);
+    border-radius: 18px;
+    padding: 44px 36px 32px 36px;
+    box-shadow: 0 8px 48px rgba(27,91,126,0.13), 0 2px 16px rgba(0,0,0,0.10);
+    width: 360px;
+    min-height: 340px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: center;
+    margin: auto;
+    animation: modal-pop 0.35s cubic-bezier(.4,1.6,.6,1) 1;
+}
+@keyframes modal-pop {
+    0% { transform: scale(0.85) translateY(40px); opacity: 0; }
+    100% { transform: scale(1) translateY(0); opacity: 1; }
+}
+.close-btn {
+    position: absolute;
+    right: 18px;
+    top: 12px;
+    font-size: 1.6rem;
+    color: #888;
+    cursor: pointer;
+    transition: color 0.18s;
+}
+.close-btn:hover {
+    color: #1b5b7e;
+}
+#signup-form h2,
+.modal-content h2 {
+    font-family: 'Playfair Display', 'Noto Sans SC', serif;
+    font-size: 2rem;
+    font-weight: 700;
+    color: #1b5b7e;
+    margin-bottom: 18px;
+    text-align: center;
+    letter-spacing: 2px;
+}
+#signup-form input {
+    margin-bottom: 18px;
+    padding: 12px 16px;
+    border: 1.5px solid #dbeef0;
+    border-radius: 8px;
+    font-size: 1rem;
+    outline: none;
+    background: #f8fbff;
+    transition: border 0.18s;
+}
+#signup-form input:focus {
+    border-color: #4f8cff;
+}
+#signup-form button {
+    background: linear-gradient(90deg, #4f8cff 60%, #1b5b7e 100%);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 0;
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.2s, box-shadow 0.2s;
+    box-shadow: 0 2px 12px rgba(79,140,255,0.08);
+    margin-top: 8px;
+}
+#signup-form button:hover {
+    background: linear-gradient(90deg, #1b5b7e 60%, #4f8cff 100%);
+    box-shadow: 0 4px 24px rgba(79,140,255,0.13);
+}
+#signup-message {
+    margin-top: 12px;
+    color: #1b5b7e;
+    font-size: 1rem;
+    min-height: 24px;
+    text-align: center;
+    font-family: 'Noto Sans SC', sans-serif;
 }
