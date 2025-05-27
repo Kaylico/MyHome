@@ -72,19 +72,28 @@
             At MyHome, we believe that technology and aesthetics should coexist harmoniously. Our products are designed to seamlessly blend smart functionality with elegant style, creating a living space that is both inspiring and comfortable. Every detail is crafted to enhance your daily life, making your home not just a place to live, but a place to love.
         </p>
     </section>
-    <section class="customer-reviews">
-        <div class="reviews-list">
-            <div class="review-item">
-                <div class="review-text">"The smart toilet is amazing! Installation was easy and it makes my life so much more convenient."</div>
-                <div class="review-author">— Alice, Shanghai</div>
+    <section class="customer-reviews-ads">
+        <div class="customer-reviews reviews-left">
+            <div class="reviews-list">
+                <div class="review-item">
+                    <div class="review-text">"The smart toilet is amazing! Installation was easy and it makes my life so much more convenient."</div>
+                    <div class="review-author">— Alice, Shanghai</div>
+                </div>
+                <div class="review-item">
+                    <div class="review-text">"Beautiful design and very practical. MyHome's basin fits perfectly in my bathroom."</div>
+                    <div class="review-author">— Mr. Wang, Beijing</div>
+                </div>
+                <div class="review-item">
+                    <div class="review-text">"The shower system is stylish and the water pressure is perfect. Highly recommended!"</div>
+                    <div class="review-author">— Emily, Shenzhen</div>
+                </div>
             </div>
-            <div class="review-item">
-                <div class="review-text">"Beautiful design and very practical. MyHome's basin fits perfectly in my bathroom."</div>
-                <div class="review-author">— Mr. Wang, Beijing</div>
-            </div>
-            <div class="review-item">
-                <div class="review-text">"The shower system is stylish and the water pressure is perfect. Highly recommended!"</div>
-                <div class="review-author">— Emily, Shenzhen</div>
+        </div>
+        <div class="ads-right">
+            <div class="ads-carousel">
+                <img src="MyHomePic/ad1.jpg" alt="Ad 1" class="ad-img active" />
+                <img src="MyHomePic/ad2.jpg" alt="Ad 2" class="ad-img" />
+                <img src="MyHomePic/ad3.jpg" alt="Ad 3" class="ad-img" />
             </div>
         </div>
     </section>
@@ -102,5 +111,17 @@
             </div>
         </div>
     </footer>
+    <script>
+
+let adIndex = 0;
+const ads = document.querySelectorAll('.ads-carousel .ad-img');
+if (ads.length > 0) {
+    setInterval(() => {
+        ads[adIndex].classList.remove('active');
+        adIndex = (adIndex + 1) % ads.length;
+        ads[adIndex].classList.add('active');
+    }, 6000);
+}
+</script>
 </body>
 </html>
